@@ -1,0 +1,4 @@
+.chrome-profile-*/
+.ms-playwright/
+.npm-cache/
+preview-*.png

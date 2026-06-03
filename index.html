@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>McKenna Thaggard | Real Estate by McKenna</title>
+    <meta
+      name="description"
+      content="McKenna Thaggard, owner of McKenna & Co. Realty Group and Atlanta Communities Realtor serving Atlanta and North Georgia."
+    >
+    <style>
+      :root {
+        --ink: #1c2421;
+        --ink-soft: #42504b;
+        --paper: #f7f5ef;
+        --surface: #ffffff;
+        --sage: #516f60;
+        --sage-dark: #2d473b;
+        --clay: #a45d43;
+        --sky: #dbe7e6;
+        --gold: #c49a52;
+        --line: rgba(28, 36, 33, 0.16);
+        --shadow: 0 24px 80px rgba(24, 34, 30, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: 0;
+      }
+
+      body,
+      button,
+      input,
+      textarea {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .site-header {
+        position: absolute;
+        z-index: 3;
+        inset: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 24px 0;
+        color: #fff;
+      }
+
+      .brand {
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .nav-links a {
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 86vh;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(16, 24, 20, 0.88), rgba(16, 24, 20, 0.5), rgba(16, 24, 20, 0.12)),
+          url("assets/closed-ranch-1.jpg") center / cover no-repeat;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 28%;
+        background: linear-gradient(0deg, var(--paper), rgba(247, 245, 239, 0));
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 150px 0 104px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--sky);
+        font-size: 0.92rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 840px;
+        margin-bottom: 20px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 5rem;
+        line-height: 0.95;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.16rem;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        background: var(--surface);
+        color: var(--ink);
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .button.secondary {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
+      .button.dark {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .section {
+        position: relative;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 76px 0;
+      }
+
+      .section-kicker {
+        margin-bottom: 10px;
+        color: var(--clay);
+        font-size: 0.84rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        margin-bottom: 22px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.7rem;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(220px, 340px) minmax(0, 1fr);
+        gap: 54px;
+        align-items: center;
+      }
+
+      .profile-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .profile-photo {
+        aspect-ratio: 1;
+        width: min(100%, 320px);
+        border: 10px solid var(--surface);
+        border-radius: 50%;
+        box-shadow: var(--shadow);
+        object-fit: cover;
+      }
+
+      .contact-line {
+        display: grid;
+        gap: 6px;
+        color: var(--ink-soft);
+        font-weight: 700;
+      }
+
+      .contact-line a {
+        color: var(--sage-dark);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+
+      .about-copy {
+        display: grid;
+        gap: 18px;
+        max-width: 760px;
+      }
+
+      .about-copy p {
+        margin-bottom: 0;
+        color: var(--ink-soft);
+        font-size: 1.08rem;
+      }
+
+      .proof-band {
+        background: var(--surface);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .work-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+        gap: 44px;
+        align-items: center;
+      }
+
+      .carousel {
+        position: relative;
+      }
+
+      .media-frame {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1;
+        background: var(--sky);
+        box-shadow: var(--shadow);
+      }
+
+      .media-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slide-caption {
+        position: absolute;
+        inset: auto 0 0;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: end;
+        padding: 26px;
+        color: #fff;
+        background: linear-gradient(0deg, rgba(17, 25, 21, 0.88), rgba(17, 25, 21, 0));
+      }
+
+      .slide-caption h3 {
+        margin-bottom: 4px;
+        font-size: 1.18rem;
+      }
+
+      .slide-caption p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .slide-link {
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .icon-button {
+        display: inline-grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+        font-size: 1.35rem;
+        line-height: 1;
+        transition: transform 160ms ease, border-color 160ms ease;
+      }
+
+      .icon-button:hover,
+      .icon-button:focus-visible {
+        border-color: var(--sage);
+        transform: translateY(-1px);
+      }
+
+      .dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(28, 36, 33, 0.24);
+        cursor: pointer;
+      }
+
+      .dot[aria-current="true"] {
+        background: var(--sage-dark);
+      }
+
+      .proof-copy p {
+        color: var(--ink-soft);
+        font-size: 1.05rem;
+      }
+
+      .source-note {
+        font-size: 0.92rem;
+      }
+
+      .proof-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 24px;
+      }
+
+      .proof-item {
+        padding: 18px;
+        border-left: 4px solid var(--gold);
+        background: #f3f7f6;
+      }
+
+      .proof-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .proof-item span {
+        display: block;
+        color: var(--ink-soft);
+      }
+
+      .proof-item a {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--sage-dark);
+        font-weight: 800;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .service {
+        min-height: 220px;
+        padding: 26px;
+        border-top: 5px solid var(--sage);
+        background: var(--surface);
+      }
+
+      .service:nth-child(2) {
+        border-top-color: var(--clay);
+      }
+
+      .service:nth-child(3) {
+        border-top-color: var(--gold);
+      }
+
+      .service h3 {
+        margin-bottom: 10px;
+        font-size: 1.22rem;
+      }
+
+      .service p {
+        margin-bottom: 0;
+        color: var(--ink-soft);
+      }
+
+      .cta-band {
+        background: var(--sage-dark);
+        color: #fff;
+      }
+
+      .cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .cta .section-title {
+        margin-bottom: 10px;
+      }
+
+      .cta p {
+        max-width: 660px;
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      footer {
+        padding: 26px 20px;
+        color: var(--ink-soft);
+        text-align: center;
+      }
+
+      @media (max-width: 860px) {
+        .site-header {
+          position: absolute;
+          width: min(100% - 28px, 1180px);
+          padding-top: 18px;
+        }
+
+        .nav-links {
+          gap: 14px;
+        }
+
+        .nav-links a {
+          font-size: 0.84rem;
+        }
+
+        .hero {
+          min-height: 84vh;
+          background-position: center;
+        }
+
+        .hero-inner {
+          width: min(100% - 28px, 1180px);
+          padding-bottom: 78px;
+        }
+
+        h1 {
+          font-size: 3.35rem;
+        }
+
+        .hero-copy {
+          font-size: 1rem;
+        }
+
+        .section {
+          width: min(100% - 28px, 1180px);
+          padding: 58px 0;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .about-grid,
+        .work-layout,
+        .cta {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-panel {
+          justify-items: start;
+        }
+
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .slide-caption {
+          position: static;
+          grid-template-columns: 1fr;
+          padding: 18px;
+          color: var(--ink);
+          background: var(--surface);
+        }
+
+        .slide-caption p {
+          color: var(--ink-soft);
+        }
+
+        .slide-link {
+          color: var(--sage-dark);
+        }
+
+        .media-frame {
+          aspect-ratio: 1;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .site-header {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+
+        h1 {
+          font-size: 2.85rem;
+        }
+
+        .hero-actions,
+        .cta-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .carousel-controls {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="#top">Real Estate by McKenna</a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="McKenna Thaggard real estate">
+        <div class="hero-inner">
+          <p class="eyebrow">Atlanta Communities Realtor</p>
+          <h1>McKenna Thaggard</h1>
+          <p class="hero-copy">
+            Owner of McKenna & Co. Realty Group, helping buyers and sellers across Atlanta and North Georgia move with clear strategy, honest communication, and steady guidance.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="https://calendly.com/realestatebymckenna/30min">Book a consultation</a>
+            <a class="button secondary" href="mailto:mckenna@atlcommunities.net">Email McKenna</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="about-grid">
+          <aside class="profile-panel" aria-label="McKenna profile">
+            <img class="profile-photo" src="assets/profile.jpg" alt="McKenna Thaggard">
+            <div class="contact-line">
+              <span>McKenna & Co. Realty Group</span>
+              <a href="https://www.instagram.com/mckennacrealtygroup/">@mckennacrealtygroup</a>
+              <a href="mailto:mckenna@atlcommunities.net">mckenna@atlcommunities.net</a>
+            </div>
+          </aside>
+          <div class="about-copy">
+            <p class="section-kicker">About McKenna</p>
+            <h2 class="section-title">Personal guidance with market-minded strategy.</h2>
+            <p>
+              Hi, I am McKenna Thaggard, owner of McKenna & Co. Realty Group and an Atlanta Communities Realtor serving Atlanta and North Georgia.
+            </p>
+            <p>
+              I value upfront, honest communication and I like the process to feel personal, not transactional. Whether you are buying your first home, selling a long-loved property, or planning your next move, my job is to make sure you understand what is happening and why.
+            </p>
+            <p>
+              My double-major Bachelor of Science degree in economics and business shapes the way I work: I pay attention to pricing, market shifts, negotiation strategy, and the small details that help clients feel prepared instead of pressured.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="proof-band">
+        <section class="section" id="work">
+          <div class="work-layout">
+            <div class="carousel" aria-label="Sold home slideshow">
+              <div class="media-frame">
+                <img id="slideImage" src="assets/seller-home-sold-1.jpg" alt="Sold home listing graphic for 2075 Pinevale Drive NE">
+                <div class="slide-caption">
+                  <div>
+                    <h3 id="slideTitle">Sold: 2075 Pinevale Drive NE</h3>
+                    <p id="slideText">A Marietta seller moved on after 56 years in the same home.</p>
+                  </div>
+                  <a id="slideLink" class="slide-link" href="https://www.instagram.com/p/DVjg5doicPo/">View post</a>
+                </div>
+              </div>
+              <div class="carousel-controls" aria-label="Slideshow controls">
+                <button class="icon-button" type="button" id="prevSlide" aria-label="Previous photo" title="Previous photo">‹</button>
+                <div class="dots" id="slideDots" aria-label="Choose photo"></div>
+                <button class="icon-button" type="button" id="nextSlide" aria-label="Next photo" title="Next photo">›</button>
+              </div>
+            </div>
+
+            <div class="proof-copy">
+              <p class="section-kicker">Proof of work</p>
+              <h2 class="section-title">Real homes, real closings.</h2>
+              <p>
+                The slideshow is built from McKenna's public Instagram posts for sold, under-contract, and closed client transactions. The linked posts keep the proof tied to the original source.
+              </p>
+              <p class="source-note">
+                Some Instagram assets were posted before her marriage and may show her previous Cummings name; this page uses her current name, McKenna Thaggard.
+              </p>
+              <div class="proof-list">
+                <div class="proof-item">
+                  <strong>Sold after 56 years of ownership</strong>
+                  <span>2075 Pinevale Drive NE closed for a longtime homeowner ready for the next chapter.</span>
+                  <a href="https://www.instagram.com/p/DVjg5doicPo/">Instagram post</a>
+                </div>
+                <div class="proof-item">
+                  <strong>Closed renovated ranch</strong>
+                  <span>North Druid Hills and Buckhead area, with indoor and outdoor entertaining space.</span>
+                  <a href="https://www.instagram.com/p/DTjKBoYiRp6/">Instagram post</a>
+                </div>
+                <div class="proof-item">
+                  <strong>Sold after five weeks on market</strong>
+                  <span>122 Santa Anita Trail sold after multiple offers.</span>
+                  <a href="https://www.instagram.com/p/DQm4bhBiX4M/">Instagram post</a>
+                </div>
+                <div class="proof-item">
+                  <strong>Above asking in 48 hours</strong>
+                  <span>A Marietta listing moved under contract above asking with strategic pricing.</span>
+                  <a href="https://www.instagram.com/p/DUjj9NrCfr0/">Instagram post</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="section" aria-label="Services">
+        <p class="section-kicker">How she helps</p>
+        <h2 class="section-title">Clear support from first question to closing day.</h2>
+        <div class="service-grid">
+          <article class="service">
+            <h3>Buying</h3>
+            <p>Market education, neighborhood guidance, offer strategy, and steady communication so buyers can make confident decisions.</p>
+          </article>
+          <article class="service">
+            <h3>Selling</h3>
+            <p>Pricing strategy, preparation advice, marketing direction, and negotiation support built around each property's strengths.</p>
+          </article>
+          <article class="service">
+            <h3>Planning</h3>
+            <p>Complimentary in-person or virtual consultations for clients who want to understand timing, options, and next steps.</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="cta-band" id="contact">
+        <section class="section cta">
+          <div>
+            <p class="section-kicker">Start here</p>
+            <h2 class="section-title">Have a real estate question?</h2>
+            <p>
+              Book a complimentary appointment or send a message. McKenna can walk through the Atlanta and North Georgia market with you and help you decide what makes sense next.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="button" href="https://calendly.com/realestatebymckenna/30min">Book now</a>
+            <a class="button secondary" href="https://www.instagram.com/mckennacrealtygroup/">Instagram</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <span>Real Estate by McKenna | Atlanta Communities | McKenna Thaggard</span>
+    </footer>
+
+    <script>
+      const slides = [
+        {
+          image: "assets/seller-home-sold-1.jpg",
+          alt: "Sold home listing graphic for 2075 Pinevale Drive NE",
+          title: "Sold: 2075 Pinevale Drive NE",
+          text: "A Marietta seller moved on after 56 years in the same home.",
+          url: "https://www.instagram.com/p/DVjg5doicPo/"
+        },
+        {
+          image: "assets/santa-anita-sold-1.jpg",
+          alt: "Sold home listing graphic for 122 Santa Anita Trail",
+          title: "Sold: 122 Santa Anita Trail",
+          text: "Sold after five weeks on market with multiple offers.",
+          url: "https://www.instagram.com/p/DQm4bhBiX4M/"
+        },
+        {
+          image: "assets/above-asking-contract-1.jpg",
+          alt: "Under contract listing graphic for a Marietta home",
+          title: "Under contract above asking",
+          text: "A strategically priced Marietta listing moved above asking in 48 hours.",
+          url: "https://www.instagram.com/p/DUjj9NrCfr0/"
+        },
+        {
+          image: "assets/closed-ranch-1.jpg",
+          alt: "Exterior of a closed ranch home",
+          title: "Closed ranch near North Druid Hills and Buckhead",
+          text: "A recently closed property represented on McKenna's Instagram.",
+          url: "https://www.instagram.com/p/DTjKBoYiRp6/"
+        },
+        {
+          image: "assets/closed-ranch-2.jpg",
+          alt: "Open living room and kitchen in a renovated ranch home",
+          title: "Updated living and kitchen space",
+          text: "Bright interiors and functional flow helped show the home's everyday livability.",
+          url: "https://www.instagram.com/p/DTjKBoYiRp6/"
+        },
+        {
+          image: "assets/closed-ranch-3.jpg",
+          alt: "Dining room beside a white kitchen",
+          title: "Dining space ready for buyers to picture life in",
+          text: "Clean presentation and room-by-room marketing made the home easy to understand.",
+          url: "https://www.instagram.com/p/DTjKBoYiRp6/"
+        },
+        {
+          image: "assets/closed-ranch-4.jpg",
+          alt: "Screened porch overlooking trees",
+          title: "Indoor-outdoor living details",
+          text: "The listing highlighted usable spaces beyond the main rooms.",
+          url: "https://www.instagram.com/p/DTjKBoYiRp6/"
+        },
+        {
+          image: "assets/closed-ranch-5.jpg",
+          alt: "Back patio seating area surrounded by trees",
+          title: "Outdoor entertaining space",
+          text: "Private exterior areas rounded out the story of the property.",
+          url: "https://www.instagram.com/p/DTjKBoYiRp6/"
+        }
+      ];
+
+      const slideImage = document.getElementById("slideImage");
+      const slideTitle = document.getElementById("slideTitle");
+      const slideText = document.getElementById("slideText");
+      const slideLink = document.getElementById("slideLink");
+      const dots = document.getElementById("slideDots");
+      const prev = document.getElementById("prevSlide");
+      const next = document.getElementById("nextSlide");
+      let activeSlide = 0;
+      let timer = null;
+
+      function renderDots() {
+        dots.innerHTML = "";
+        slides.forEach((slide, index) => {
+          const dot = document.createElement("button");
+          dot.className = "dot";
+          dot.type = "button";
+          dot.setAttribute("aria-label", `Show photo ${index + 1}`);
+          dot.setAttribute("aria-current", String(index === activeSlide));
+          dot.addEventListener("click", () => {
+            setSlide(index);
+            restartTimer();
+          });
+          dots.appendChild(dot);
+        });
+      }
+
+      function setSlide(index) {
+        activeSlide = (index + slides.length) % slides.length;
+        const slide = slides[activeSlide];
+        slideImage.src = slide.image;
+        slideImage.alt = slide.alt;
+        slideTitle.textContent = slide.title;
+        slideText.textContent = slide.text;
+        slideLink.href = slide.url;
+        renderDots();
+      }
+
+      function restartTimer() {
+        if (timer) {
+          window.clearInterval(timer);
+        }
+
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          timer = window.setInterval(() => setSlide(activeSlide + 1), 6500);
+        }
+      }
+
+      prev.addEventListener("click", () => {
+        setSlide(activeSlide - 1);
+        restartTimer();
+      });
+
+      next.addEventListener("click", () => {
+        setSlide(activeSlide + 1);
+        restartTimer();
+      });
+
+      setSlide(0);
+      restartTimer();
+    </script>
+  </body>
+</html>
