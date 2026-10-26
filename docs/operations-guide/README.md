@@ -49,3 +49,5 @@ Edition 26 October 2026. Repository OchsSoft/real-estate-by-mckenna. Inspected s
 Source files: [index.html](https://github.com/OchsSoft/real-estate-by-mckenna/blob/6966d295ff041672808df539b65788b3cd15a945/index.html).
 
 [Editable Word edition](Operations_Guide.docx) | [PDF edition](Operations_Guide.pdf)
+
+For architecture, code-level explanations, worked change recipes, and detailed recovery, use the [development handbook](../development-handbook/README.md).
